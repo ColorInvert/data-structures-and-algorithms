@@ -92,12 +92,16 @@ Within the addNumbers function, invoke the callback function as many times as ne
 Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
-const addValues = (arr, value) => {
-  // Solution code here...
-};
+//Get our array and our value, then put the value at the end of the array.
+const addValues = (arr, value) => arr.push(value);
 
+//get a number, our array, a number of copies of that number to add, and a reference to our addValues function. Use those 4 to add the num value to the array, the defined number of "times", into the array using the callback addValues.
 const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
+
+  for (let i = 0; i < times; i++) {
+    callback(arr, num);
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
