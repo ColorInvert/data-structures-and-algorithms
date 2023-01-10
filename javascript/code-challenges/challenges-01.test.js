@@ -1,5 +1,7 @@
 'use strict';
 
+const { index } = require("cheerio/lib/api/traversing");
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1
 
@@ -8,6 +10,7 @@ Write a function named `addOne` that takes an array of numbers, and returns a ne
 Use `forEach` to loop over the input array and work with each value.  Push the new value into a local array. Return the local array;
 ------------------------------------------------------------------------------------------------ */
 
+//Code largely created by Roger Reyes, coding alongside instructor.
 const addOne = (arr) => {
   const myArray = [];
   arr.forEach(item => myArray.push(item + 1));
@@ -23,7 +26,9 @@ Use `forEach` to loop over the input array. Modify each string, and add the upda
 ------------------------------------------------------------------------------------------------ */
 
 const addExclamation = (arr) => {
-  // Solution code here...
+  const newArray = [];
+  arr.forEach(item => newArray.push(`${item}!`));
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -35,7 +40,14 @@ Use `forEach` to loop over the input array. The modified strings should each be 
 ------------------------------------------------------------------------------------------------ */
 
 const allUpperCase = (arr) => {
-  // Solution code here...
+  const newArray = [];
+  var upperCased;
+
+  arr.forEach(item => {
+    upperCased = item.toUpperCase(), newArray.push(upperCased);
+  });
+
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -49,11 +61,19 @@ Use `forEach` to build a new array of strings, each string modified by the callb
 ------------------------------------------------------------------------------------------------ */
 
 const greeting = (word) => {
-  // Solution code here...
+  var cased;
+  cased = word.toUpperCase();
+  return `${cased}!`;
+
 };
 
 const speaker = (words, callback) => {
-  // Solution code here...
+  const newArray = [];
+
+  words.forEach(item => {
+    newArray.push(callback(item));
+  });
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
