@@ -156,8 +156,39 @@ Iterate over the array using forEach to determine the output based on several ru
 Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
+//ah, a classic.
 const fizzbuzz = (arr) => {
-  // Solution code here...
+
+  //make new array for collecting fizzbuzz results
+  var fizzArr = [];
+
+  //check each entry of fizzbuzz array to see if they meet modulo conditions
+  arr.forEach(item => {
+
+    //divisible by 3 AND 5?
+    if (item % 3 === 0 && item % 5 === 0) {
+      fizzArr.push('Fizz Buzz');
+    }
+
+    //divisible by 3?
+    else if (item % 3 === 0) {
+      fizzArr.push('Fizz');
+    }
+
+    //divisible by 5?
+    else if (item % 5 === 0) {
+      fizzArr.push('Buzz');
+    }
+
+    //if none of those, push just the number we recieved itself.
+    else {
+      fizzArr.push(item);
+    }
+
+  });
+  //return our fizzed array after running through the whole tested array.
+  return fizzArr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -211,7 +242,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   const inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
   test('It should print out messages or numbers', () => {
