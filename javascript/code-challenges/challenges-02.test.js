@@ -93,7 +93,11 @@ Write a function named mapTwoToThe that produces the same output as your forLoop
 ------------------------------------------------------------------------------------------------ */
 
 const mapTwoToThe = (arr) => {
-  // Solution code here...
+
+  //pass each element of arr down into map, 2 to the (element) power, return.
+  var twoPower = arr.map(x => Math.pow(2, x));
+  return twoPower;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
