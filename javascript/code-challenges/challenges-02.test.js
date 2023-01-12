@@ -40,7 +40,10 @@ Write a function named addQuestion that, given an array of strings, uses map to 
 ------------------------------------------------------------------------------------------------ */
 
 const addQuestion = (arr) => {
-  // Solution code here...
+
+  //take array element, and use map to concatenate a ? to the end, then return.
+  var questioned = arr.map(x => x.concat(`?`));
+  return questioned;
 };
 
 /* ------------------------------------------------------------------------------------------------
