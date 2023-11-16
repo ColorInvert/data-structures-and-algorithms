@@ -60,6 +60,62 @@ class LinkedList:
         my_string += " NULL"
         return my_string
 
+    # Add a new node with a given value to the end of the list.
+    def append(self, value):
+        current = self.head
+
+        # Advance through the list until the next node is null, indicating the end.
+        while current.next is not None:
+            current = current.next
+
+        # change the "next" value of the last node to a freshly created node.
+        current.next = Node(value)
+
+        # Tell user of success.
+        return f"New node with a value of {value} added to end of linked list."
+
+    # Add a new node with a given new_value immediately before the node that has the value provided.
+    def insert_before(self, value, new_value):
+        current = self.head
+
+        # check if, and run insert method instead, if the value provided is the head.
+        if current.value == value:
+            self.insert(new_value)
+            return f"New node with a value of {new_value} placed before the first instance of {value} (which was the head!)."
+
+        # Advance through the list until the next node is the target value.
+        while current.next.value is not value:
+            current = current.next
+
+        #!error handling if insert_before's value is not present in the linked list.
+        if current.next is None:
+            return f"requested value of {value} to insert {new_value} before not found!"
+
+        # From the node immediately before the one we're looking for, create a new node that has a matching next destination of our existing node, and then overwrite this previous node's next value with the freshly created node, forcing it between the two.
+        new_node = Node(new_value, current.next)
+        current.next = new_node
+
+        # Tell user of success.
+        return f"New node with a value of {new_value} placed before the first instance of {value}."
+
+    # Add a new node with a given new_value immediately after the node that has the value provided.
+    def insert_after(self, value, new_value):
+        current = self.head
+
+        # Advance through the list until we are on the node containing the requested value.
+        while current.value is not value:
+            current = current.next
+
+        #!error handling if insert_after's value is not present in the linked list.
+        if current is None:
+            return f"requested value of {value} to insert {new_value} after not found!"
+
+        new_node = Node(new_value, current.next)
+        current.next = new_node
+
+        # Tell user of success.
+        return f"New node with a value of {new_value} placed after the first instance of {value}."
+
 
 class Node:
     def __init__(self, value, next=None):
