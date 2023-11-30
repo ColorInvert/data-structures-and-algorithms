@@ -215,7 +215,84 @@ def test_insert_after_end():
     assert actual == expected
 
 
+# ? Does providing a value for k that is bigger than the total node count of the linked list correctly return an "Exception" message?
+def test_k_too_big():
+    my_list = LinkedList()
+    my_list.insert(3)
+    my_list.insert(2)
+    my_list.insert(1)
+    my_list.append(4)
+    actual = my_list.kthFromEnd(57235)
+    expected = "Exception"
+    assert actual == expected
+
+
+# ? Does providing a value for k that is negative correctly return an "Exception" message?
+def test_k_negative():
+    my_list = LinkedList()
+    my_list.insert(3)
+    my_list.insert(2)
+    my_list.insert(1)
+    my_list.append(4)
+    actual = my_list.kthFromEnd(-5)
+    expected = "Exception"
+    assert actual == expected
+
+
+# ? Does providing 0 as a value for k return the last node's value?
+def test_k_zero():
+    my_list = LinkedList()
+    my_list.insert(3)
+    my_list.insert(2)
+    my_list.insert(1)
+    my_list.append(4)
+    actual = my_list.kthFromEnd(0)
+    expected = 4
+    assert actual == expected
+
+
+# ? does providing 0 as a value of k work, while the linked list has only one node?
+def test_k_zero_single_node():
+    my_list = LinkedList()
+    my_list.insert(1)
+    actual = my_list.kthFromEnd(0)
+    expected = 1
+    assert actual == expected
+
+
+# ? Does providing a k value that matches the node count of the linked list provide the first node? (note that this puts us one node past the head, so it should result in an exception!)
+def test_k_length_matching():
+    my_list = LinkedList()
+    my_list.insert(3)
+    my_list.insert(2)
+    my_list.insert(1)
+    my_list.append(4)
+    actual = my_list.kthFromEnd(4)
+    expected = "Exception"
+    assert actual == expected
+
+
+# ? Basic usecase test. k refers to a node somewhere in the middle of the linked list
+def test_k_happy_path():
+    my_list = LinkedList()
+    my_list.insert(3)
+    my_list.insert(2)
+    my_list.insert(1)
+    my_list.append(4)
+    actual = my_list.kthFromEnd(2)
+    expected = 2
+    assert actual == expected
+
+
 # TODO:
+
+
+# !Where k is greater than the length of the linked list
+# !Where k and the length of the list are the same
+# !Where k is not a positive integer
+# !Where the linked list is of a size 1
+# !“Happy Path” where k is not at the end, but somewhere in the middle of the linked list
+
 
 # !Write tests to prove the following functionality:
 

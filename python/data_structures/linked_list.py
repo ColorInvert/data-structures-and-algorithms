@@ -116,6 +116,29 @@ class LinkedList:
         # Tell user of success.
         return f"New node with a value of {new_value} placed after the first instance of {value}."
 
+    # Returns the value for the node k number of steps back from the final node. Note that k is measured in steps taken, so k=0 is the last node, and k = 1 is one step back!
+    def kthFromEnd(self, k):
+        current = self.head
+        values_list = []
+
+        # Traverse linked list, saving each node's value to a list
+        while current.next is not None:
+            values_list.append(current.value)
+            current = current.next
+
+        # Get the last node's value since the loop breaks before it is saved.
+        values_list.append(current.value)
+
+        # !Error handling for k being bigger than ll node count.
+        if k >= len(values_list):
+            return "Exception"
+        # !Error handling for negative value for k.
+        elif k < 0:
+            return "Exception"
+
+        values_list.reverse()
+        return values_list[k]
+
 
 class Node:
     def __init__(self, value, next=None):
