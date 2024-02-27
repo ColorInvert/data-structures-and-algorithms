@@ -64,6 +64,12 @@ class LinkedList:
     def append(self, value):
         current = self.head
 
+        # Check if a head exists at all, and if not, make one.
+        if self.head is None:
+            self.head = Node(value)
+            return f"New node with a value of {value} added as the head of the linked list."
+
+
         # Advance through the list until the next node is null, indicating the end.
         while current.next is not None:
             current = current.next
@@ -139,6 +145,31 @@ class LinkedList:
         values_list.reverse()
         return values_list[k]
 
+    # Gets two lists, and makes the pointers zigzag between the two, turning it into
+    # one list. (list1 i0, list2 i0, list1 i1, list2 i1, etc.)
+    def zipLists(list1, list2):
+
+        # Establish new output linked list
+        new_list = LinkedList()
+
+        # Get the heads of list1 and list2
+        current1 = list1.head
+        current2 = list2.head
+
+        # Alternate between the currents of list 1 and 2 while they both exist, and
+        # append to the new list their values. Advance the list being taken from each time
+        # this happens.
+        while current1 or current2:
+            if current1:
+                new_list.append(current1.value)
+                current1 = current1.next
+            if current2:
+                new_list.append(current2.value)
+                current2 = current2.next
+
+        return new_list
+
+
 
 class Node:
     def __init__(self, value, next=None):
@@ -150,9 +181,23 @@ class Node:
 
 
 if __name__ == "__main__":
+
+    # Testing for ziplist. Make 2 linked lists, see if the output of ziplists
+    # performed while taking both as variables gives expected output.
     ll = LinkedList()
     ll.insert(5)
     ll.insert(10)
     ll.insert(15)
     ll.insert(20)
     print(ll.includes(10))
+
+    ll_2 = LinkedList()
+    ll_2.insert(2)
+    ll_2.insert(4)
+    ll_2.insert(6)
+    ll_2.insert(8)
+
+    zipped = LinkedList.zipLists(ll, ll_2)
+    print(f"linked list address is {zipped}")
+
+    print(f"And the value is {zipped.to_string()}")
