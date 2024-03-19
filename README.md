@@ -30,3 +30,4 @@ To run your tests
 - [Singly Linked List](python/docs/linked_list_insertions/README.md)
 - [kth From End](python/docs/linked_list_kth/README.md)
 - [Linked List Zip](python/docs/linked_list_zip/README.md)
+- [Stack And Queue](python/docs/stack_and_queue/README.md)
