@@ -31,3 +31,4 @@ To run your tests
 - [kth From End](python/docs/linked_list_kth/README.md)
 - [Linked List Zip](python/docs/linked_list_zip/README.md)
 - [Stack And Queue](python/docs/stack_and_queue/README.md)
+- [Pseudo-Queue Stack](python/docs/stack_queue_pseudo/README.md)

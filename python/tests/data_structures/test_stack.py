@@ -1,8 +1,9 @@
 import pytest
 from data_structures.stack import Stack
+from data_structures.stack import PseudoQueue
 from data_structures.invalid_operation_error import InvalidOperationError
 
-
+#?Tests for PseudoQueue are near the bottom, and the beginning of them is marked.
 def test_exists():
     assert Stack
 
@@ -85,5 +86,35 @@ def test_pop_empty():
     s = Stack()
     with pytest.raises(InvalidOperationError) as e:
         s.pop()
+
+    assert str(e.value) == "Method not allowed on empty collection"
+
+
+#? Begin PseudoQueue tests
+
+def test_pseudo_queue_in_out():
+    p = PseudoQueue()
+    p.enqueue("banana")
+    p.enqueue("apple")
+    actual = p.dequeue()
+    expected = "banana"
+    assert actual == expected
+
+
+def test_pseudo_dequeue_empty():
+    p = PseudoQueue()
+    with pytest.raises(InvalidOperationError) as e:
+        p.dequeue()
+
+    assert str(e.value) == "Method not allowed on empty collection"
+
+def test_pseudo_dequeue_too_many():
+    p = PseudoQueue()
+    p.enqueue("banana")
+    p.enqueue("apple")
+    p.dequeue()
+    p.dequeue()
+    with pytest.raises(InvalidOperationError) as e:
+        p.dequeue()
 
     assert str(e.value) == "Method not allowed on empty collection"
