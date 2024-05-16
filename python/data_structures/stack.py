@@ -23,12 +23,18 @@ class Stack:
     def __init__(self):
         self.top = None
 
+        # Define manifest, for tracking contents of the full stack for the usage of getMax() method.
+        self.manifest = []
+
     # Self.top is None will result in a true or false depending on if stack exists.
     def is_empty(self):
         return self.top is None
 
     # Add a new node to the top of the stack.
     def push(self, value):
+
+        # Update manifest with newly pushed value
+        self.manifest.append(value)
 
         # Is the stack empty with a null reference at the top? if so, set top to Node.
         if self.top == None:
@@ -43,11 +49,14 @@ class Stack:
     def pop(self):
 
         # Empty stack error handling. If self.top.value doesn't exist, stack's empty.
-
         if self.is_empty():
             raise InvalidOperationError("Method not allowed on empty collection")
 
         else:
+            # Remove last entry on manifest. Note this is within else block so an
+            # empty manifest pop should never occur
+            self.manifest.pop()
+
             requested_node = self.top
             # Move current top's next to the top.
             self.top = self.top.next
@@ -61,6 +70,16 @@ class Stack:
             raise InvalidOperationError("Method not allowed on empty collection")
         else:
             return self.top.value
+
+    def getMax(self):
+
+        # Prepare a temp holding value
+        highest = None
+
+        for i in self.manifest:
+            if highest is None or highest < i:
+                highest = i
+        return highest
 
 
 class PseudoQueue:
@@ -97,10 +116,9 @@ class PseudoQueue:
             if self.out_stack.is_empty() == False:
                 return self.out_stack.pop()
 
-            #Both stacks empty, return "can't do this on an empty queue" error.
+            # Both stacks empty, return "can't do this on an empty queue" error.
             else:
                 raise InvalidOperationError("Method not allowed on empty collection")
-
 
         # Instack NOT empty, pop all contents of instack and push them into outstack
         # before proceeding.
