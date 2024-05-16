@@ -3,7 +3,8 @@ from data_structures.stack import Stack
 from data_structures.stack import PseudoQueue
 from data_structures.invalid_operation_error import InvalidOperationError
 
-#?Tests for PseudoQueue are near the bottom, and the beginning of them is marked.
+
+# ?Tests for PseudoQueue are near the bottom, and the beginning of them is marked.
 def test_exists():
     assert Stack
 
@@ -62,7 +63,6 @@ def test_pop_until_empty():
     assert actual == expected
 
 
-
 def test_peek():
     s = Stack()
     s.push("apple")
@@ -70,7 +70,6 @@ def test_peek():
     actual = s.peek()
     expected = "banana"
     assert actual == expected
-
 
 
 def test_peek_empty():
@@ -81,7 +80,6 @@ def test_peek_empty():
     assert str(e.value) == "Method not allowed on empty collection"
 
 
-
 def test_pop_empty():
     s = Stack()
     with pytest.raises(InvalidOperationError) as e:
@@ -90,7 +88,8 @@ def test_pop_empty():
     assert str(e.value) == "Method not allowed on empty collection"
 
 
-#? Begin PseudoQueue tests
+# ? Begin PseudoQueue tests
+
 
 def test_pseudo_queue_in_out():
     p = PseudoQueue()
@@ -108,6 +107,7 @@ def test_pseudo_dequeue_empty():
 
     assert str(e.value) == "Method not allowed on empty collection"
 
+
 def test_pseudo_dequeue_too_many():
     p = PseudoQueue()
     p.enqueue("banana")
@@ -118,3 +118,34 @@ def test_pseudo_dequeue_too_many():
         p.dequeue()
 
     assert str(e.value) == "Method not allowed on empty collection"
+
+
+def test_get_max_top_item():
+    s = Stack()
+    s.push(3)
+    s.push(7)
+    s.push(26)
+    actual = s.getMax()
+    expected = 26
+    assert actual == expected
+
+
+def test_get_max_bottom_item():
+    s = Stack()
+    s.push(4563)
+    s.push(7)
+    s.push(26)
+    actual = s.getMax()
+    expected = 4563
+    assert actual == expected
+
+
+def test_get_max_bottom_item():
+    s = Stack()
+    s.push(4)
+    s.push(403)
+    s.push(7)
+    s.push(26)
+    actual = s.getMax()
+    expected = 403
+    assert actual == expected
