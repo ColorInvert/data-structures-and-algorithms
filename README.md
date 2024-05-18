@@ -35,4 +35,6 @@ To run your tests
 - [Stack Queue Animal Shelter](python/docs/stack_queue_animal_shelter/README.md)
 - [Stack Queue Brackets](python/docs/stack_queue_brackets/README.md)
 - [Stack getMax](python/docs/stack_and_queue_max/README.md)
+- [Trees](python/docs/trees/README.md)
+
 

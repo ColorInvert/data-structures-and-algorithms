@@ -6,7 +6,6 @@ def test_exists():
     assert BinarySearchTree
 
 
-@pytest.mark.skip("TODO")
 def test_instantiate_empty():
     tree = BinarySearchTree()
     actual = tree.root
@@ -14,7 +13,6 @@ def test_instantiate_empty():
     assert actual == expected
 
 
-@pytest.mark.skip("TODO")
 def test_add_to_empty():
     tree = BinarySearchTree()
     tree.add("apples")
@@ -23,7 +21,6 @@ def test_add_to_empty():
     assert actual == expected
 
 
-@pytest.mark.skip("TODO")
 def test_add_left():
     tree = BinarySearchTree()
     tree.add(10)
@@ -33,7 +30,6 @@ def test_add_left():
     assert actual == expected
 
 
-@pytest.mark.skip("TODO")
 def test_add_right():
     tree = BinarySearchTree()
     tree.add(10)
@@ -42,7 +38,6 @@ def test_add_right():
     expected = 15
     assert actual == expected
 
-
 @pytest.mark.skip("TODO")
 def test_add_deeper(tree):
     tree.add(25)
@@ -50,13 +45,11 @@ def test_add_deeper(tree):
     expected = 25
     assert actual == expected
 
-
 @pytest.mark.skip("TODO")
 def test_contains(tree):
     actual = tree.contains(15)
     expected = True
     assert actual == expected
-
 
 @pytest.mark.skip("TODO")
 def test_contains_deeper(tree):
