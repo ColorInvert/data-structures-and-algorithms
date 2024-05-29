@@ -31,7 +31,7 @@ Binary Search Tree
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
-
+Recursive function. Compare added value to root, and pick a path depending on if higher or lower. if something exists in one of those spaces already, recurse and do the same from the new location.
 ## Solution
 <!-- Show how to run your code, and examples of it in action -->
-
+Code is in binary_search_tree.py, and can be confirmed of fucntion via the use of pytest.
