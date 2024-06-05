@@ -8,10 +8,35 @@ class BinaryTree:
         self.root = None
         self.output = []
 
+    # ? Find and return the largest value present in a binary tree.
+    def find_maximum_value(self, node=None):
+        # establish tree root
+        if node is None:
+            node = self.root
 
+            # Establish "highest" value, starting at -infinity so first comparison always
+            # leads to an update of value.
+            self.highest = float("-inf")
 
-    #? Pre order, in order, and post order are the same, except for when the root's
-    #? value is noted down. Before, during or after.
+        # Check if we're doing initial setup or not, and skip this check if we are.
+        if node is not None:
+            # Compare current node value to highest seen, and if node's is bigger, replace.
+            if self.highest < node.value:
+                self.highest = node.value
+
+        # Check if left exists, and if so, traverse down recursively
+        if node.left is not None:
+            self.find_maximum_value(node.left)
+
+        # Check if right exists, and if so, traverse down recursively
+        if node.right is not None:
+            self.find_maximum_value(node.right)
+
+        # Return the value of highest, which should be the highest .value in the tree.
+        return self.highest
+
+    # ? Pre order, in order, and post order are the same, except for when the root's
+    # ? value is noted down. Before, during or after.
 
     def pre_order(self, node=None):
 
@@ -31,7 +56,6 @@ class BinaryTree:
             self.pre_order(node.right)
 
         return self.output
-
 
     def in_order(self, node=None):
 
@@ -79,4 +103,3 @@ class Node:
         self.left = None
         self.right = None
         self.value = value
-
