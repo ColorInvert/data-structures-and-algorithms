@@ -36,5 +36,6 @@ To run your tests
 - [Stack Queue Brackets](python/docs/stack_queue_brackets/README.md)
 - [Stack getMax](python/docs/stack_and_queue_max/README.md)
 - [Trees](python/docs/trees/README.md)
+- [Tree Max](python/docs/tree_max/README.md)
 
 
