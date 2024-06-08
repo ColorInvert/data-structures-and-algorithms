@@ -8,6 +8,44 @@ class BinaryTree:
         self.root = None
         self.output = []
 
+    # ? A non-recursive, while loop method of getting breadth first ordering of an input
+    # ? tree, that uses a list that reads from index 0 to act as a pseudoqueue.
+
+
+    #! Note that this took lots of re-iterating and a change of the test suite, as my implementation could not pass the required tests as written for unknown reasons. TA assistence provided a new test set, which can be viewed in test_tree_breadth_first.py
+
+    #! It was only much later that I discovered that I was supposed to be working on a different file entirely, tree_breadth_first.py
+    def breadth_first(self):
+
+        # Queue is for storing object references for action ordering...
+        queue = []
+        # While values is used to hold the values of the nodes themselves.
+        values = []
+
+        if not self or self.root is None:
+            return[]
+
+        queue.append(self.root)
+
+        # if the queue contains anything...
+        while len(queue) > 0:
+
+            node = queue.pop(0)
+            # Add front of queue node's value to values list
+            values.append(node.value)
+            # Set self to node reference at front of queue
+
+
+            # Check if left exists, and if so
+            if node.left is not None:
+                queue.append(node.left)
+
+            # Check if right exists, and if so
+            if node.right is not None:
+                queue.append(node.right)
+
+        return values
+
     # ? Find and return the largest value present in a binary tree.
     def find_maximum_value(self, node=None):
         # establish tree root
@@ -96,10 +134,22 @@ class BinaryTree:
         return self.output
 
 
-class Node:
 
-    # Each node can hold it's own value, and the location of the node to its left and right.
-    def __init__(self, value):
-        self.left = None
-        self.right = None
+class Node:
+    """Protected Tree Node"""
+    def __init__(self, value, left=None, right=None):
         self.value = value
+        self.left = left
+        self.right = right
+
+
+# class Node:
+
+#     # Each node can hold it's own value, and the location of the node to its left and right.
+#     def __init__(self, value):
+#         self.left = None
+#         self.right = None
+#         self.value = value
+# Ensure the tests call the method correctly
+def breadth_first(tree):
+    return tree.breadth_first()
