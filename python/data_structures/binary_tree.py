@@ -13,6 +13,8 @@ class BinaryTree:
 
 
     #! Note that this took lots of re-iterating and a change of the test suite, as my implementation could not pass the required tests as written for unknown reasons. TA assistence provided a new test set, which can be viewed in test_tree_breadth_first.py
+
+    #! It was only much later that I discovered that I was supposed to be working on a different file entirely, tree_breadth_first.py
     def breadth_first(self):
 
         # Queue is for storing object references for action ordering...
