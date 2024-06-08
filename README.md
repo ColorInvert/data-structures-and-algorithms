@@ -38,6 +38,6 @@ To run your tests
 - [Trees](python/docs/trees/README.md)
 - [Tree Max](python/docs/tree_max/README.md)
 - [Tree Breadth First](python/docs/tree_breadth_first/README.md)
-
+- [Tree Fizz Buzz](python/docs/tree_fizz_buzz/README.md)
 
 
