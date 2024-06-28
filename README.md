@@ -39,5 +39,6 @@ To run your tests
 - [Tree Max](python/docs/tree_max/README.md)
 - [Tree Breadth First](python/docs/tree_breadth_first/README.md)
 - [Tree Fizz Buzz](python/docs/tree_fizz_buzz/README.md)
+- [Insertion Sort (blog post)](sorting/insertion/README.md)
 
 
